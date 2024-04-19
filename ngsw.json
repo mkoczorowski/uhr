@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1713542308057,
+  "timestamp": 1713543010502,
   "index": "/uhr/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/uhr/favicon.ico",
         "/uhr/index.html",
-        "/uhr/main-5BUTGHDK.js",
+        "/uhr/main-422HV4G6.js",
         "/uhr/manifest.webmanifest",
         "/uhr/polyfills-RT5I6R6G.js",
         "/uhr/styles-23AE3KTE.css"
@@ -59,8 +59,8 @@
     "/uhr/assets/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
     "/uhr/assets/uhr-logo.svg": "a3c8a22caa7c61de13e12ffe880abf974286fc2b",
     "/uhr/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/uhr/index.html": "58f32ca9964d9663f06dbb79c75c5939b73077ff",
-    "/uhr/main-5BUTGHDK.js": "f386f2684195a0b29c8ff004defd37906cc8ae96",
+    "/uhr/index.html": "21c1b76c0fa8c1afdb03082d0e5d4ecb617d7910",
+    "/uhr/main-422HV4G6.js": "f7ac224160633516a233df9a250b22030486f581",
     "/uhr/manifest.webmanifest": "556235da7041aa0690dddc0a4b285bdda093c748",
     "/uhr/media/color-3LUHUBGQ.png": "ff4c4bcb2207891b292f544edb4da9d2df5d45cf",
     "/uhr/media/hue-RMMBQOAC.png": "f81ae627637a684614aa726e206c73ce099a01fd",
