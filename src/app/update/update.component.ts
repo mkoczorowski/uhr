@@ -11,7 +11,9 @@ import { SwUpdate, VersionReadyEvent } from '@angular/service-worker';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { WINDOW } from '../app.tokens';
-import { filter } from 'rxjs';
+import { filter, interval, startWith, switchMap, tap } from 'rxjs';
+
+const CHECK_INTERVAL = 10000;
 
 @Component({
   selector: 'app-update',
@@ -32,20 +34,29 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit() {
     if (this.swUpdate.isEnabled) {
-      this.swUpdate.versionUpdates
-        .pipe(
-          filter(
-            (evt): evt is VersionReadyEvent => evt.type === 'VERSION_READY'
-          )
-        )
-        .subscribe(() => {
-          this.dialogVisible = true;
-          this.cd.detectChanges();
-        });
+      this.handleServiceWorkerUpdates();
     }
   }
 
   reload(): void {
     this.window.location?.reload();
+  }
+
+  private handleServiceWorkerUpdates(): void {
+    interval(CHECK_INTERVAL)
+      .pipe(
+        startWith(0),
+        switchMap(() => this.swUpdate.checkForUpdate())
+      )
+      .subscribe();
+
+    this.swUpdate.versionUpdates
+      .pipe(
+        filter((evt): evt is VersionReadyEvent => evt.type === 'VERSION_READY')
+      )
+      .subscribe(() => {
+        this.dialogVisible = true;
+        this.cd.detectChanges();
+      });
   }
 }
