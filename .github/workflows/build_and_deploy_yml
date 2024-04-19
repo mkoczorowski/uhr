@@ -3,9 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - main
+
 permissions:
-  contents: write# or main, depending on your default branch
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -30,7 +31,7 @@ jobs:
       run: npx ng build --prod --base-href "/${{ github.repository }}/"
 
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@4.1.4
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages  # The branch the action should deploy to.
         folder: dist/uhr/browser  # The folder the action should deploy.
