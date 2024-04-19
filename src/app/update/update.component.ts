@@ -22,7 +22,7 @@ import { filter } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UpdateComponent implements OnInit {
-  dialogVisible = true;
+  dialogVisible = false;
 
   constructor(
     private readonly swUpdate: SwUpdate,
