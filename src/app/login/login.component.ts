@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -16,9 +16,6 @@ import { FormsModule } from '@angular/forms';
     InputTextModule,
     FormsModule,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
-}
+export class LoginComponent {}
