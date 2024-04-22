@@ -1,0 +1,25 @@
+name: Design Tokens Update
+
+on:
+  repository_dispatch:
+    types: [tokens-update]
+
+jobs:
+  update-tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Write Token Data to File
+        run: |
+          echo '${{ github.event.client_payload.tokens }}' > ${{ github.workspace }}/path/to/your/tokens/${{ github.event.client_payload.filename }}
+
+      - name: Create Pull Request
+        uses: repo-sync/pull-request@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_title: "Update Design Tokens"
+          pr_body: "Automatically update design tokens from Figma"
+          source_branch: "auto-update-${{ github.run_number }}"
+          destination_branch: "main"
