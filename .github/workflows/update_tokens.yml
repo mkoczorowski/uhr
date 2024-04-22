@@ -17,13 +17,16 @@ jobs:
         with:
           fetch-depth: 0 # Ensures all history is fetched
 
+      - name: Install jq
+        run: sudo apt-get install jq
+
       - name: Create a new branch
         run: |
           git checkout -b auto-update-${{ github.run_number }}
 
       - name: Write Token Data to File
         run: |
-          echo "${{ github.event.client_payload.tokens }}" > src/theme/tokens/${{ github.event.client_payload.filename }}
+          echo "${{ github.event.client_payload.tokens }}" | jq '.' > src/theme/tokens/${{ github.event.client_payload.filename }}
 
       - name: Commit changes
         run: |
