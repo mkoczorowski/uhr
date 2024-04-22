@@ -4,6 +4,9 @@ on:
   repository_dispatch:
     types: [tokens-update]
 
+permissions:
+  contents: write
+
 jobs:
   update-tokens:
     runs-on: ubuntu-latest
