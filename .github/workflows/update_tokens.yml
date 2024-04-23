@@ -26,8 +26,8 @@ jobs:
 
       - name: Write Token Data to File
         run: |
-          TOKENS="${{ github.event.client_payload.tokens }}"
-          echo "$TOKENS" | jq -n '.' > src/theme/tokens/${{ github.event.client_payload.filename }}
+          TOKENS='${{ toJson(github.event.client_payload.tokens) }}'
+          echo "$TOKENS" | jq '.' > src/theme/tokens/${{ github.event.client_payload.filename }}
 
       - name: Commit changes
         run: |
