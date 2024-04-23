@@ -33,6 +33,8 @@ jobs:
 
       - name: Commit changes
         run: |
+          git config user.name 'Your GitHub Username'
+          git config user.email 'your-email@example.com'
           git add .
           git commit -m "Update design tokens via Figma"
 
