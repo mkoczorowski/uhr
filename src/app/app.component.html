@@ -1,4 +1,8 @@
-<div class="absolute top-0 right-0" [ngClass]="appService.theme">
+<div
+  class="absolute"
+  style="top: 20px; right: 20px"
+  [ngClass]="appService.theme"
+>
   <p-selectButton
     [options]="selectOptions"
     [(ngModel)]="appService.theme"
